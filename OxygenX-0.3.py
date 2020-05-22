@@ -1,5 +1,4 @@
 from concurrent.futures import ThreadPoolExecutor
-from ctypes import windll
 from datetime import datetime, timedelta, timezone
 from json import JSONDecodeError
 from multiprocessing.dummy import Pool as ThreadPool
@@ -157,8 +156,6 @@ class Main:
                 self.liquidcape = False
         self.proxylist = Checker.Proxy.proxylist
         self.proxy_type = Checker.Proxy.type
-        windll.kernel32.SetConsoleTitleW(
-            f'OxygenX-{self.version} | by ShadowOxygen')
         self.t = f'''{Fore.LIGHTCYAN_EX}________                                     ____  ___
 \_____  \ ___  ______.__. ____   ____   ____ \   \/  /
  /   |   \\\  \/  <   |  |/ ___\_/ __ \ /    \ \     /
@@ -497,18 +494,7 @@ class Main:
         return answer
 
     def title(self):
-        while True:
-            windll.kernel32.SetConsoleTitleW(
-                f"OxygenX-{self.version} | "
-                f"Hits: {Counter.hits}"
-                f" | Bad: {Counter.bad}"
-                f' | Secured: {Counter.nfa}'
-                f' | Unsecured: {Counter.sfa}'
-                f' | Demo: {Counter.demo}'
-                f' | Mail Access: {Counter.emailaccess}'
-                f' | Unmigrated: {Counter.unfa}'
-                f" | Left: {len(self.accounts) - (Counter.hits + Counter.bad + Counter.demo)}/{len(self.combolist)}"
-                f' | CPM: {Counter.cpm}')
+        return
 
     def prints(self):
         while True:
